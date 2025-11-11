@@ -6,54 +6,50 @@ const totalPriceSpan = document.getElementById('total-price');
 
 // Target values and store the user values and validation check
 addProductButton.addEventListener('click', function() {
+  console.log('Add Product button clicked');
+
+  //current input values
   const name = productNameInput.value.trim();
   const price = parseFloat(productPriceInput.value);
 
+// validation 
   if (!name || isNaN(price) || price <= 0) {
     alert('Please enter a valid product name and price');
     return;
   }
-});
 
-
-
-
-
-// Create the new list item
-const li = document.createElement('li');
+  // Create li and set content 
+ const li = document.createElement('li');
 li.classList.add('cart-item');
 li.dataset.price = price;
-
-// Adding product name and price
 li.innerHTML = `${name} - $${price.toFixed(2)}`;
 
-// Storing price
-li.dataset.price = price;
-
-//Create a button dynamically 
+// Create remove button 
 const removeBtn = document.createElement('button');
 removeBtn.textContent = "Remove";
-
-// Click Event for Remove Button
-
+//remove button listener
 removeBtn.addEventListener('click', function(event){
 const li = event.target.closest('li');
 const price = parseFloat(li.dataset.price);
 updateTotalPrice(-price);
 li.remove();
 });
-
-//Add button to the li
+//Add to end of list item
 li.appendChild(removeBtn);
-
 // Append the li to the ul and update the price
 cart.appendChild(li);
 updateTotalPrice(price);
-
 // Clear the input fields for next item
 productNameInput.value = '';
 productPriceInput.value = '';
 
+});
+
+
+
+
+// Storing price
+li.dataset.price = price;
 
  
 // Function to update the total price
@@ -71,7 +67,7 @@ function removeItem(event) {
   item.remove();
 }
 
-// Function for validation check of name and number
+
 
 
 
