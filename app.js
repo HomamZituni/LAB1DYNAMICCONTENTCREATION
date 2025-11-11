@@ -4,10 +4,19 @@ const addProductButton = document.getElementById('add-product');
 const cart = document.getElementById('cart');
 const totalPriceSpan = document.getElementById('total-price');
 
+// Target values and store the user values and validation check
+addProductButton.addEventListener('click', function() {
+  const name = productNameInput.value.trim();
+  const price = parseFloat(productPriceInput.value);
 
-// Targets the actual values user types to store them
-const name = productNameInput.value.trim();
-const price = parseFloat(productPriceInput.value);
+  if (!name || isNaN(price) || price <= 0) {
+    alert('Please enter a valid product name and price');
+    return;
+  }
+});
+
+
+
 
 
 // Create the new list item
@@ -16,7 +25,7 @@ li.classList.add('cart-item');
 li.dataset.price = price;
 
 // Adding product name and price
-li.innerHTML = `${name} - $${price.toFixed(2)} <button>Remove</button>`;
+li.innerHTML = `${name} - $${price.toFixed(2)}`;
 
 // Storing price
 li.dataset.price = price;
@@ -30,7 +39,7 @@ removeBtn.textContent = "Remove";
 removeBtn.addEventListener('click', function(event){
 const li = event.target.closest('li');
 const price = parseFloat(li.dataset.price);
-updateTotalprice(-price);
+updateTotalPrice(-price);
 li.remove();
 });
 
@@ -64,10 +73,7 @@ function removeItem(event) {
 
 // Function for validation check of name and number
 
-if (!name || isNaN(price) || price <= 0) {
-alert ('Please enter a valid product name and price');
-return;
-}
+
 
 
 
