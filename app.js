@@ -3,6 +3,12 @@ const productPriceInput = document.getElementById('product-price');
 const addProductButton = document.getElementById('add-product');
 const cart = document.getElementById('cart');
 const totalPriceSpan = document.getElementById('total-price');
+
+
+// Targets the actual values user types to store them
+const name = productNameInput.value.trim();
+const price = parseFloat(productPriceInput.value);
+
  
 let totalPrice = 0;
  
@@ -18,6 +24,13 @@ function removeItem(event) {
   const price = parseFloat(item.dataset.price);
   updateTotalPrice(-price);
   item.remove();
+}
+
+// Function for validation check of name and number
+
+if (!name || isNaN(price) || price <= 0) {
+alert ('Please enter a valid product name and price');
+return;
 }
 
 
@@ -59,3 +72,10 @@ function removeItem(event) {
 2. Add validation check in the total price function 
 3.Add error message for each validation check 
 4. Reset both input fields after an invalid entry 
+
+
+// Additional HTML and CSS
+HTML: Add a container for error messages
+CSS: Need to style the cart items, remove button and the error messages
+
+*/
