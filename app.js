@@ -1,10 +1,20 @@
+// Total price declaration 
+let totalPrice = 0;
+
+// DOM elements to be interacted with 
 const productNameInput = document.getElementById('product-name');
 const productPriceInput = document.getElementById('product-price');
 const addProductButton = document.getElementById('add-product');
 const cart = document.getElementById('cart');
 const totalPriceSpan = document.getElementById('total-price');
 
-// Target values and store the user values and validation check
+// Function to update price 
+function updateTotalPrice(amount) {
+  totalPrice += amount;
+  totalPriceSpan.textContent = totalPrice.toFixed(2);
+}
+
+// Listener event with necessary functions for adding to work
 addProductButton.addEventListener('click', function() {
   console.log('Add Product button clicked');
 
@@ -46,26 +56,6 @@ productPriceInput.value = '';
 });
 
 
-
-
-// Storing price
-li.dataset.price = price;
-
- 
-// Function to update the total price
-let totalPrice = 0;
-function updateTotalPrice(amount) {
-  totalPrice += amount;
-  totalPriceSpan.textContent = totalPrice.toFixed(2);
-}
- 
-// Function to remove an item
-function removeItem(event) {
-  const item = event.target.closest('li');
-  const price = parseFloat(item.dataset.price);
-  updateTotalPrice(-price);
-  item.remove();
-}
 
 
 
