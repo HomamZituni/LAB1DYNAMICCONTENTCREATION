@@ -32,4 +32,30 @@ function removeItem(event) {
 4. Remove items from the cart 
 */
 
+//
 
+
+// Step One Add items to the Cart dynamically 
+/* 1. Get the values from the input fields (name and price)
+   2. Validate the inputs 
+   3. Create a new <li> element.
+   4. Add the product name and price as content.
+   5. Store the price in data-price on the <li>.
+   6. Create a “Remove” button and attach removeItem as the click handler.
+   7. Append the <li> to the cart (<ul>).
+   8. Update the total price using updateTotalPrice().
+   9. Clear the input fields for the next item.
+
+
+// Step Two Removing Items from the Cart dynamically 
+1. Adding 1-2 items from the cart from step 1
+2. Clicke the automatically generated remove button on the item
+3. Verify the item is removed from the ul 
+4. Verify the total price updates correctly 
+5. Repreat with remaining items
+
+//Step Three Attempt to add products with empty names or invalid prices aka error handling 
+1. Add validation check in the add product function
+2. Add validation check in the total price function 
+3.Add error message for each validation check 
+4. Reset both input fields after an invalid entry 
