@@ -37,6 +37,15 @@ li.remove();
 //Add button to the li
 li.appendChild(removeBtn);
 
+// Append the li to the ul and update the price
+cart.appendChild(li);
+updateTotalPrice(price);
+
+// Clear the input fields for next item
+productNameInput.value = '';
+productPriceInput.value = '';
+
+
  
 // Function to update the total price
 let totalPrice = 0;
