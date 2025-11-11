@@ -21,6 +21,22 @@ li.innerHTML = `${name} - $${price.toFixed(2)} <button>Remove</button>`;
 // Storing price
 li.dataset.price = price;
 
+//Create a button dynamically 
+const removeBtn = document.createElement('button');
+removeBtn.textContent = "Remove";
+
+// Click Event for Remove Button
+
+removeBtn.addEventListener('click', function(event){
+const li = event.target.closest('li');
+const price = parseFloat(li.dataset.price);
+updateTotalprice(-price);
+li.remove();
+});
+
+//Add button to the li
+li.appendChild(removeBtn);
+
  
 // Function to update the total price
 let totalPrice = 0;
