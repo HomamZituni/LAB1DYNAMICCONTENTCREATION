@@ -9,10 +9,21 @@ const totalPriceSpan = document.getElementById('total-price');
 const name = productNameInput.value.trim();
 const price = parseFloat(productPriceInput.value);
 
- 
-let totalPrice = 0;
+
+// Create the new list item
+const li = document.createElement('li');
+li.classList.add('cart-item');
+li.dataset.price = price;
+
+// Adding product name and price
+li.innerHTML = `${name} - $${price.toFixed(2)} <button>Remove</button>`;
+
+// Storing price
+li.dataset.price = price;
+
  
 // Function to update the total price
+let totalPrice = 0;
 function updateTotalPrice(amount) {
   totalPrice += amount;
   totalPriceSpan.textContent = totalPrice.toFixed(2);
